@@ -1,4 +1,4 @@
-import PhoneFrame from "../common/PhoneFrame";
+import PhoneFrame from '../components/common/PhoneFrame.js'
 
 const WritePage = () => {
   return (

@@ -1,9 +1,10 @@
 import React from 'react';
-import PhoneFrame from '../common/PhoneFrame';
+import PhoneFrame from '../components/common/PhoneFrame';
+import Start from '../components/start/Start';
 const StartPage = () => {
     return (
         <PhoneFrame>
-            StartPage
+            <Start/>
         </PhoneFrame>
     );
 };
