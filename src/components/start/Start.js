@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import startMoodingImage from "../../lib/images/start-mooding.png";
-import startbuttonImage from "../../lib/images/startbutton.png";
+
 
 const StyledStart = styled.div`
   width: 430px;
