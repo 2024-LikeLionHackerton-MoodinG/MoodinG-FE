@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import startMoodingImage from "../../lib/images/start-mooding.png";
-import startbuttonImage from "../../lib/images/startbutton.png";
 
 const StyledStart = styled.div`
   width: 430px;
@@ -29,22 +28,25 @@ const StartmoodingImage = styled.img`
   transform: translate(-50%, -50%);
 `;
 
-const StartButtonContainer = styled.div`
+const StartButton = styled.button`
   position: absolute;
   bottom: 100px;
   left: 50%;
   transform: translateX(-50%);
   width: 350px;
-  height: auto;
-  cursor: pointer;
+  height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-
-const StartButtonImage = styled.img`
-  width: 100%;
-  height: auto;
+  border-radius : 20px;
+  background-color: white;
+  cursor: pointer;
+  &:active{
+    border-width:4px;
+    background-color: #f4f1f1;
+    opacity: 75%;
+  }
+  box-shadow: 2px 2px 2px;
 `;
 
 const StartButtonText = styled.span`
@@ -61,10 +63,9 @@ const Start = () => {
       <StyledStart>
         <StartmoodingImage src={startMoodingImage} alt="start mooding img" />
       </StyledStart>
-      <StartButtonContainer>
-        <StartButtonImage src={startbuttonImage} alt="start button" />
+      <StartButton>
         <StartButtonText>시작 하기</StartButtonText>
-      </StartButtonContainer>
+      </StartButton>
     </>
   );
 };
