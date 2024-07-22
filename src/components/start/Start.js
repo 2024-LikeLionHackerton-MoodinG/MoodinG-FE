@@ -2,6 +2,7 @@ import startMoodingImage from "../../lib/images/start-mooding.png";
 import StyledStartButton from "../start/StyledStartButton";
 import StyledStartMoodingImage from "./StyledStartMoodingImage";
 import StyledStart from "./StyledStart";
+import { GlobalFontDNF } from "../../lib/fontSetting";
 
 const startClick = () => {
   console.log("start");
@@ -10,6 +11,7 @@ const startClick = () => {
 const Start = () => {
   return (
     <>
+    <GlobalFontDNF/>
       <StyledStart>
         <StyledStartMoodingImage
           src={startMoodingImage}
