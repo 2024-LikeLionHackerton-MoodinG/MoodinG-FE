@@ -6,6 +6,7 @@ const StyledPhoneFrame = styled.div`
     height: 932px;
     display:flex;
     justify-content:center;
+    border: solid 0.5px #dfdfe0;
 `;
 
 const PhoneFrame = ({children}) => {

@@ -1,4 +1,4 @@
-import StyledResult from "./StyledRusilt";
+import StyledResult from "./StyledRusult";
 import resultMoodingImage from "../../lib/images/result-mooding.png";
 import StyledResultMoodingImage from "./StyledResultMoodingImage";
 
