@@ -7,6 +7,7 @@ import "../../lib/FontAwesome";
 import { useEffect, useRef, useState } from "react";
 import linedPaper from "../../lib/images/linedPaper.png";
 
+
 const EditorContainer = styled.div`
   display: flex;
   flex-direction: column;
