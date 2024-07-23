@@ -48,7 +48,8 @@ const Button = styled.button`
 
   &:active {
     border-width: 4px;
-    background-color: #fafaa0;
+    background-color: #f1f1d1;
+    color:black;
     opacity: 75%;
   }
   box-shadow: 2px 2px 2px;
