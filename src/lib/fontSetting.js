@@ -8,3 +8,12 @@ export const GlobalFontDNF = createGlobalStyle`
     src: url('//cdn.df.nexon.com/img/common/font/DNFBitBitv2.otf') format('opentype');
   }
 `;
+
+export const GlobalFontDalmoori = createGlobalStyle`
+  @font-face {
+    font-family: 'dalmoori';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/dalmoori.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+`;
