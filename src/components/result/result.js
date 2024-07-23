@@ -2,7 +2,6 @@ import { GlobalFontDNF } from "../../lib/fontSetting";
 import styled from "styled-components";
 import resultMoodingImage from "../../lib/images/result-mooding.png";
 import answerballon from "../../lib/images/answerballon.png";
-import { Wave } from "../common/Wave";
 
 const ResultContainer = styled.div`
   width: 430px;
@@ -55,12 +54,10 @@ const Button = styled.button`
   box-shadow: 2px 2px 2px;
 `;
 
-// Result 컴포넌트 정의
 const Result = () => {
   return (
     <>
       <GlobalFontDNF />
-
       <ResultContainer>
         <AnswerBallon src={answerballon} alt="answer ballon"></AnswerBallon>
         <ResultMoodingImage
