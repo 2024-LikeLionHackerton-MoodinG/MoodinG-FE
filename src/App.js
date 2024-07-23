@@ -1,13 +1,7 @@
-import './App.css';
-import StartPage from './pages/StartPage';
-import WritePage from './pages/WritePage';
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <StartPage/>
-    </div>
-  );
+  return <div className="App"></div>;
 }
 
 export default App;
