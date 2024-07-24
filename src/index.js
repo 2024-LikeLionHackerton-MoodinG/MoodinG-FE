@@ -7,6 +7,7 @@ import LoadingPage from "./pages/LoadingPage.js";
 import ResultPage from "./pages/ResultPage.js";
 import StartPage from "./pages/StartPage.js";
 import WritePage from "./pages/WritePage.js";
+import InformationPage from "./pages/InformationPage.js";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: "/write",
     element: <WritePage />,
+  },
+  {
+    path: "/information",
+    element: <InformationPage />,
   },
 ]);
 
