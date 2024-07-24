@@ -13,7 +13,7 @@ const StyledStartButton = styled.button`
   color: black;
   border: 3px solid black;
   font-size: 25px;
-  background-color: white;
+  background-color: #FAFBED;
   font-family: "DNFBitBitv2", sans-serif;
   border-radius: 20px;
   min-height: 70px;
