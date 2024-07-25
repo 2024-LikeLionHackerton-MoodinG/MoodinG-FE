@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import MovingPaper from "./MovingPaper";
 import Explaination from "./Explaination";
-
 
 const Container = styled.div`
   display: flex;
@@ -13,11 +11,10 @@ const Container = styled.div`
 `;
 
 const Loading = () => {
-  const [animeDone,setAnimeDone] = useState(false);
   return (
     <Container>
-      <MovingPaper setAnimeDone={setAnimeDone}/>
-      <Explaination animeDone={animeDone}/>
+      {/* 글쓰기 컴포넌트 자리  */}
+      <Explaination motionFinish={true} />
     </Container>
   );
 };
