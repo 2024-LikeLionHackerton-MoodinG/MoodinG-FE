@@ -11,14 +11,7 @@ const StyledExplaination = styled.div`
   font-weight: bold;
 `;
 
-const MoodingImg = styled.img`
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  transform: translate(80px, -220px);
-`;
-
-const Explaination = ({ animeDone }) => {
+const Explaination = ({ motionFinish }) => {
   /*
   const navigate = useNavigate();
   useEffect(() => {
@@ -26,21 +19,20 @@ const Explaination = ({ animeDone }) => {
     // 1. localStorage에서 UUID 불러옴
     // 2. 서버로부터 UUID get
     // 3. 비교를 통해 유효성 검사
-    
-    if (animeDone) {
+
+    if (motionFinish) {
       const timer = setTimeout(() => {
-        navigate("/result/1");  //1 -> UUID 값으로 바뀔것
+        navigate("/result/1"); //1 -> UUID 값으로 바뀔것
       }, 5000);
 
       return () => clearTimeout(timer);
     }
-  }, [animeDone, navigate]);
-  */
-
+  }, [motionFinish, navigate]);
+*/
   return (
     <>
       <GlobalFontDalmoori />
-      {animeDone && (
+      {motionFinish && (
         <StyledExplaination>
           <MoodingMotion />
           무딩이가 감정일기를 소화중이에요...
