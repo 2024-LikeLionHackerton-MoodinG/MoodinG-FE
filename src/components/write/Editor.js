@@ -10,7 +10,7 @@ import Mooding_trashcan from "../../lib/images/Mooding_trashcan.png";
 const EditorContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 100%;
   align-items: center;
 `;
 
@@ -91,19 +91,18 @@ const Editor = ({setButtonClicked}) => {
         <TitleContainer>
           <FontAwesomeIcon
             icon="fa-solid fa-chevron-left"
-            style={{ marginLeft: "10px" }}
+            style={{ marginLeft: "10px"}}
+            onClick={()=>{
+              setButtonClicked(false);
+              alert("노트에 감정이 쓰여졌어요!")
+              console.log(body);
+            }}
           />
           <TitleBar>
             <Title>감정 털어놓기</Title>
-            <TrashCanImage src={Mooding_trashcan} alt="mooding_trashcan" onClick={()=>{
-              setButtonClicked(false);
-            }}/>
+            <TrashCanImage src={Mooding_trashcan} alt="mooding_trashcan" />
           </TitleBar>
-          
-          <FontAwesomeIcon
-            icon="fa-solid fa-circle-info"
-            style={{ marginRight: "10px" }}
-          />
+          <div></div>  {/*공간채우기용*/}
         </TitleContainer>
         <QuillField ref={quillElement} />
       </StyledEditor>

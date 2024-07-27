@@ -12,7 +12,6 @@ const StyledExplaination = styled.div`
 `;
 
 const Explaination = ({ motionFinish }) => {
-  /*
   const navigate = useNavigate();
   useEffect(() => {
     // Todo : 추가 로직 구현 -> 로직이 바뀔 수도 있다.
@@ -28,7 +27,6 @@ const Explaination = ({ motionFinish }) => {
       return () => clearTimeout(timer);
     }
   }, [motionFinish, navigate]);
-*/
   return (
     <>
       <GlobalFontDalmoori />
