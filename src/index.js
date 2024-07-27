@@ -11,10 +11,6 @@ import InformationPage from "./pages/InformationPage.js";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <App />,
-  },
-  {
     path: "/loading",
     element: <LoadingPage />,
   },
@@ -23,7 +19,7 @@ const router = createBrowserRouter([
     element: <ResultPage />,
   },
   {
-    path: "/start",
+    path: "/",
     element: <StartPage />,
   },
   {

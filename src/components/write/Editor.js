@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import Quill from "quill";
 import "quill/dist/quill.bubble.css";
-import smallMoodingImage from "../../lib/images/common-mooding(small).png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../../lib/FontAwesome";
 import { useEffect, useRef, useState } from "react";
+import {GlobalFontDNF,GlobalFontDalmoori} from "../../lib/fontSetting";
+import Mooding_trashcan from "../../lib/images/Mooding_trashcan.png";
 
 const EditorContainer = styled.div`
   display: flex;
@@ -26,41 +27,54 @@ const StyledEditor = styled.div`
 const Title = styled.p`
   font-size: 19px;
   font-weight: bold;
+  font-family:"DNFBitBitv2",sans-serif;
 `;
 
-const UpperBar = styled.div`
+const TitleBar = styled.div`
+  display:flex;
+  flex-direction:row;
+`
+const TrashCanImage = styled.img`
+  width:31;
+  height: 53.14;
+  margin-left: 3px;
+`
+
+const TitleContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 `;
 
-const MoodingsBar = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  height: 74px;
-`;
-
 const QuillField = styled.div`
-  font-size: 21px;
+  font-size: 15px;
   font-weight: bold;
   overflow-y: hidden;
   height: 500px;
 `;
 
-const Editor = () => {
+
+
+const Editor = ({setButtonClicked}) => {
   const [body, setBody] = useState("");
   const quillElement = useRef(null);
   const quillInstance = useRef(null);
 
   useEffect(() => {
+    const Font = Quill.import("formats/font");
+    Font.whitelist = ["dalmoori"];
+    Quill.register(Font, true);
+
     quillInstance.current = new Quill(quillElement.current, {
       theme: "bubble",
-      placeholder: "당신의 기분을 상하게 했던 일을 무딩이에게 버려주세요",
+      placeholder: "당신의 기분을 상하게 했던 일을 무딩이에게 버려주세요...",
       modules: {},
     });
 
     const quill = quillInstance.current;
+    quill.root.style.fontFamily = "dalmoori, sans-serif"; 
+
     quill.on("text-change", () => {
       setBody(quill.root.innerHTML);
     });
@@ -71,18 +85,26 @@ const Editor = () => {
 
   return (
     <EditorContainer>
+      <GlobalFontDNF/>
+      <GlobalFontDalmoori/> 
       <StyledEditor>
-        <UpperBar>
+        <TitleContainer>
           <FontAwesomeIcon
             icon="fa-solid fa-chevron-left"
             style={{ marginLeft: "10px" }}
           />
-          <Title>감정 털어놓기</Title>
+          <TitleBar>
+            <Title>감정 털어놓기</Title>
+            <TrashCanImage src={Mooding_trashcan} alt="mooding_trashcan" onClick={()=>{
+              setButtonClicked(false);
+            }}/>
+          </TitleBar>
+          
           <FontAwesomeIcon
             icon="fa-solid fa-circle-info"
             style={{ marginRight: "10px" }}
           />
-        </UpperBar>
+        </TitleContainer>
         <QuillField ref={quillElement} />
       </StyledEditor>
     </EditorContainer>
