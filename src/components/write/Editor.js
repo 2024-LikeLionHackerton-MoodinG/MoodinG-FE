@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled,{ keyframes } from "styled-components";
 import Quill from "quill";
 import "quill/dist/quill.bubble.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,14 +14,44 @@ const EditorContainer = styled.div`
   align-items: center;
 `;
 
+const crumpleAndExpand = keyframes`
+  0% {
+    transform: scale(0.5) rotateX(90deg) rotateY(0deg) translateZ(-300px) perspective(1000px);
+    opacity: 0;
+    filter: blur(8px);
+  }
+  25% {
+    transform: scale(0.7) rotateX(60deg) rotateY(10deg) translateZ(-200px) perspective(1000px);
+    opacity: 0.3;
+    filter: blur(6px);
+  }
+  50% {
+    transform: scale(1) rotateX(30deg) rotateY(-10deg) translateZ(-100px) perspective(1000px);
+    opacity: 0.6;
+    filter: blur(4px);
+  }
+  75% {
+    transform: scale(0.9) rotateX(10deg) rotateY(5deg) translateZ(-50px) perspective(1000px);
+    opacity: 0.9;
+    filter: blur(2px);
+  }
+  100% {
+    transform: scale(1) rotateX(0deg) rotateY(0deg) translateZ(0px) perspective(1000px);
+    opacity: 1;
+    filter: blur(0);
+  }
+`;
+
 const StyledEditor = styled.div`
   width: 100%;
-  height: 650px;
+  height: 690px;
   background-color: #fafbed;
   border-radius: 20px;
-  opacity: 100%;
   margin-top: 10px;
   background-size: cover;
+  animation: ${crumpleAndExpand} 1s ease-out forwards;
+  transform-style: preserve-3d;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 `;
 
 const Title = styled.p`
