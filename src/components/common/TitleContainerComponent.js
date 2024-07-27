@@ -24,6 +24,7 @@ const TrashCanImage = styled.img`
   width: 31px;
   height: 53.14px;
   margin-left: 3px;
+  cursor: pointer;
 `;
 
 const TitleContainerComponent = () => {

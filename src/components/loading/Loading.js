@@ -13,7 +13,6 @@ const Container = styled.div`
 const Loading = () => {
   return (
     <Container>
-      {/* 글쓰기 컴포넌트 자리  */}
       <Explaination motionFinish={true} />
     </Container>
   );
