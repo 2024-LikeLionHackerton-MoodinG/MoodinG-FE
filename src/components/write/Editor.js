@@ -3,7 +3,7 @@ import Quill from "quill";
 import "quill/dist/quill.bubble.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../../lib/FontAwesome";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState} from "react";
 import {GlobalFontDNF,GlobalFontDalmoori} from "../../lib/fontSetting";
 import Mooding_trashcan from "../../lib/images/Mooding_trashcan.png";
 
@@ -86,11 +86,9 @@ const QuillField = styled.div`
 
 
 
-const Editor = ({setButtonClicked}) => {
-  const [body, setBody] = useState("");
+const Editor = ({setButtonClicked,setBody}) => {
   const quillElement = useRef(null);
   const quillInstance = useRef(null);
-
   useEffect(() => {
     const Font = Quill.import("formats/font");
     Font.whitelist = ["dalmoori"];
@@ -111,7 +109,7 @@ const Editor = ({setButtonClicked}) => {
     return () => {
       quill.off("text-change");
     };
-  }, []);
+  }, [setBody]);
 
   return (
     <EditorContainer>
@@ -125,7 +123,6 @@ const Editor = ({setButtonClicked}) => {
             onClick={()=>{
               setButtonClicked(false);
               alert("노트에 감정이 쓰여졌어요!")
-              console.log(body);
             }}
           />
           <TitleBar>

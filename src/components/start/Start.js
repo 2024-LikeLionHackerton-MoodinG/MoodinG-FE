@@ -4,8 +4,9 @@ import { GlobalFontDNF } from "../../lib/fontSetting";
 import { Wave } from "../common/Wave";
 import trashcan from "../../lib/images/Mooding_trashcan.png";
 import StartButton from "./StartButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import StartExplain from "./StartExplain";
+import axios from "axios";
 
 const StartContainer = styled.div`
   display: flex;
@@ -54,6 +55,21 @@ const MoodingWord = styled.div`
 
 const Start = () => {
   const [buttonClick, setButtonClick] = useState(false);
+  useEffect(()=>{
+    const fetchData = async () => {
+      try {
+        const header = await axios.post(
+         "/session",{},
+         {
+          withCredentials: true
+         }
+        );
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchData();
+  },[])
   return (
     <StartContainer>
       <GlobalFontDNF />

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import smallMooding2 from "../../lib/images/Mooding_small2.png";
+import { useNavigate } from "react-router-dom";
 
 const ButtonsContainer = styled.div`
   display: flex;
@@ -50,6 +51,7 @@ const InformationButton = styled.button`
 `;
 
 const StartButton = ({ setButtonClick }) => {
+  const navigate = useNavigate();
   return (
     <ButtonsContainer>
       <StyledStartButton
@@ -61,7 +63,7 @@ const StartButton = ({ setButtonClick }) => {
       </StyledStartButton>
       <InformationButtonContainer>
         <InformationImg src={smallMooding2}></InformationImg>
-        <InformationButton>알아보기</InformationButton>
+        <InformationButton onClick={()=>{navigate("/information")}}>알아보기</InformationButton>
       </InformationButtonContainer>
     </ButtonsContainer>
   );
