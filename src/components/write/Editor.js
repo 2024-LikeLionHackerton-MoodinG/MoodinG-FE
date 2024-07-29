@@ -3,7 +3,7 @@ import Quill from "quill";
 import "quill/dist/quill.bubble.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../../lib/FontAwesome";
-import { useEffect, useRef, useState} from "react";
+import { useEffect, useRef} from "react";
 import {GlobalFontDNF,GlobalFontDalmoori} from "../../lib/fontSetting";
 import Mooding_trashcan from "../../lib/images/Mooding_trashcan.png";
 
