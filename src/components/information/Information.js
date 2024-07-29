@@ -45,7 +45,6 @@ const Information = () => {
   return (
     <InformationContainer>
       <GlobalFontDNF />
-
       <StyledInfomation>
         <IntroContainer>
           <IntroImg src={moodingInfoTop} alt="mooding info top img" />

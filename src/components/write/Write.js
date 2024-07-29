@@ -13,14 +13,15 @@ const StyledWriteContainer = styled.div`
 
 const Write = () => {
   const [buttonClicked, setButtonClicked] = useState(false);
+  const [body,setBody] = useState("");
   return (
     <StyledWriteContainer>
       {buttonClicked ? (
-        <Editor setButtonClicked={setButtonClicked} />
+        <Editor setButtonClicked={setButtonClicked} setBody={setBody} />
       ) : (
         <Note setNoteClicked={setButtonClicked} />
       )}
-      <MoodingEat />
+      <MoodingEat body={body}/>
       <CustomDragLayer />
     </StyledWriteContainer>
   );
