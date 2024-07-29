@@ -1,37 +1,54 @@
 import { GlobalFontDNF } from "../../lib/fontSetting";
 import styled from "styled-components";
 import resultMoodingImage from "../../lib/images/result-mooding.png";
-import answerballon from "../../lib/images/answerballon.png";
+import { Wave } from "../common/Wave";
+import titleImg from "../../lib/images/mooding_info3.png";
 
 const ResultContainer = styled.div`
+  width: 100%;
+  height: 100%;
+`;
+
+const BackgrondContainer = styled(Wave)`
+  width: 100%;
+  height: 200px;
+`;
+const TitleContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   width: 430px;
-  height: 932px;
-  background: linear-gradient(#ffecb6, #fcf082);
-  overflow: hidden;
+  height: 150px;
+`;
+const TitleImage = styled.img`
+  width: 35px;
 `;
 
-// StyledResultMoodingImage 컴포넌트 정의
+const Title = styled.p`
+  font-size: 30px;
+  font-family: "DNFBitBitv2", sans-serif;
+`;
+
+const ResultMoodingImageContainer = styled.div`
+  width: 100%;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 const ResultMoodingImage = styled.img`
-  position: relative;
-  transform: translate(65px, 50px);
   width: 300px;
-`;
-
-const AnswerBallon = styled.img`
-  position: relative;
-  transform: translate(15px, 30px);
-  width: 400px;
 `;
 
 const ButtonBar = styled.div`
   position: relative;
-  top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 430px;
-  height: 80px;
-  gap: 50px;
+  height: 60px;
+  gap: 20px;
 `;
 
 const Button = styled.button`
@@ -42,36 +59,58 @@ const Button = styled.button`
   font-family: "DNFBitBitv2", sans-serif;
   border-radius: 20px;
   height: 50px;
-  width: 150px;
+  width: 200px;
   cursor: pointer;
   transition: background-color 0.1s;
 
   &:active {
     border-width: 4px;
     background-color: #f1f1d1;
-    color:black;
+    color: black;
     opacity: 75%;
   }
   box-shadow: 2px 2px 2px;
 `;
 
+const ComunicationContainer = styled.div`
+  height: 320px;
+  display: flex;
+  alin-itmes: center;
+  justify-content: center;
+  margin: 10px;
+`;
+
+const ComuincationBox = styled.div`
+  width: 380px;
+  height: 290px;
+  border: 5px outset rgb(220, 220, 220);
+  border-radius: 10px;
+`;
+
 const Result = () => {
   return (
-    <>
+    <ResultContainer>
       <GlobalFontDNF />
-      <ResultContainer>
-        <AnswerBallon src={answerballon} alt="answer ballon"></AnswerBallon>
-        <ResultMoodingImage
-          src={resultMoodingImage}
-          alt="result mooding img"
-        />
 
-        <ButtonBar>
-          <Button>1</Button>
-          <Button>2</Button>
-        </ButtonBar>
-      </ResultContainer>
-    </>
+      <BackgrondContainer>
+        <TitleContainer>
+          <TitleImage src={titleImg} alt="trashCanImg" />
+          <Title>배불러용</Title>
+        </TitleContainer>
+      </BackgrondContainer>
+
+      <ResultMoodingImageContainer>
+        <ResultMoodingImage src={resultMoodingImage} alt="result mooding img" />
+      </ResultMoodingImageContainer>
+
+      <ButtonBar>
+        <Button>처음으로</Button>
+      </ButtonBar>
+
+      <ComunicationContainer>
+        <ComuincationBox />
+      </ComunicationContainer>
+    </ResultContainer>
   );
 };
 
