@@ -7,6 +7,7 @@ import StartButton from "./StartButton";
 import { useEffect, useState } from "react";
 import StartExplain from "./StartExplain";
 import * as API from "../../lib/api/api";
+import axios from "axios";
 
 const StartContainer = styled.div`
   display: flex;
@@ -58,11 +59,8 @@ const Start = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const header = await API.session(
-          "/session", {},
-          {
-            withCredentials: true
-          }
+        const header = await axios.post(
+          "/session"
         );
       } catch (error) {
         console.log(error);
@@ -84,7 +82,7 @@ const Start = () => {
           <MoodingWord>무딩</MoodingWord>
         </TrashCanContainer>
       </StyledStart>
-      
+
       {buttonClick ? (
         <StartExplain
           buttonClick={buttonClick}

@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import { GlobalFontDNF } from "../../lib/fontSetting";
 import trashcan from "../../lib/images/Mooding_trashcan.png";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import MoodingMotion from "./MoodingMotion";
+import axios from "axios";
 
 const ExplainationContainer = styled.div``;
 
@@ -45,21 +46,35 @@ const MoodingWord = styled.div`
 
 const Explaination = ({ motionFinish }) => {
   const navigate = useNavigate();
-
+  const { id } = useParams();
+  const [status, setStatus] = useState("");
+  const location = useLocation();
+  //useLocation사용과 더불어 location을 useEffect 종속배열에
+  //넣음으로써 페이지 이동시 API 호출을 멈추는 구조임.
   useEffect(() => {
-    // Todo : 추가 로직 구현 -> 로직이 바뀔 수도 있다.
-    // 1. localStorage에서 UUID 불러옴
-    // 2. 서버로부터 UUID get
-    // 3. 비교를 통해 유효성 검사
-
-    if (motionFinish) {
-      const timer = setTimeout(() => {
-        navigate("/result/1"); //1 -> UUID 값으로 바뀔것
-      }, 5000);
-
-      return () => clearTimeout(timer);
+    let intervalId;
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`/feedback/status/${id}`);
+        const statusFromResponse = response.data.status;  //"IN PROGRESS" or "DONE"이 됩니다. 
+        setStatus(statusFromResponse);
+        console.log(status);
+        if (status === "DONE") {
+          clearInterval(intervalId);
+          navigate(`/result/${id}`);
+        }
+      } catch (error) {
+        console.log(error);
+        clearInterval(intervalId);
+      }
     }
-  }, [motionFinish, navigate]);
+    if (motionFinish) {
+      intervalId = setInterval(fetchData, 500);
+      return () => {
+        clearTimeout(intervalId);
+      };
+    }
+  }, [motionFinish, navigate, id, status, location]);
 
   return (
     <ExplainationContainer>

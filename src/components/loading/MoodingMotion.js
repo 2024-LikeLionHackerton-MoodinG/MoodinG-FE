@@ -18,13 +18,13 @@ const frames = [frame1, frame2];
 
 const MoodingMotion = () => {
   const [currentFrame, setCurrentFrame] = useState(0);
-  
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentFrame((prevFrame) => (prevFrame + 1) % frames.length);
-    }, 500); 
+    }, 500);
 
-    return () => clearInterval(interval); 
+    return () => clearInterval(interval);
   }, []);
 
   return (
