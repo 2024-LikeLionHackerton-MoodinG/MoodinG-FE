@@ -6,7 +6,7 @@ import trashcan from "../../lib/images/Mooding_trashcan.png";
 import StartButton from "./StartButton";
 import { useEffect, useState } from "react";
 import StartExplain from "./StartExplain";
-import axios from "axios";
+import * as API from "../../lib/api/api";
 
 const StartContainer = styled.div`
   display: flex;
@@ -58,11 +58,10 @@ const Start = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const header = await axios.post(
-          "/session",
-          {},
+        const header = await API.session(
+          "/session", {},
           {
-            withCredentials: true,
+            withCredentials: true
           }
         );
       } catch (error) {
@@ -70,7 +69,7 @@ const Start = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [])
   return (
     <StartContainer>
       <GlobalFontDNF />

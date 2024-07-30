@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Mooding_Eat from "../../lib/images/Mooding_Eat.png";
 import { useDrop } from "react-dnd";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import * as API from "../../lib/api/api";
 import { useCallback } from "react";
 import RemoveHTMLTags from "../../lib/RemoveHTMLTags";
 
@@ -15,13 +15,15 @@ const MoodingEat = ({ body }) => {
 
   const drop = useCallback(
     async (item, monitor) => {
-    //   console.log("Note Dropped In Mooding's Mouth!!!!");
-    //   console.log("content is:", body); 
+      //   console.log("Note Dropped In Mooding's Mouth!!!!");
+      //   console.log("content is:", body); 
       const cleanBody = RemoveHTMLTags(body);
-    //   console.log(cleanBody);
+      //   console.log(cleanBody);
       try {
-        const response = await axios.post("/feedback", {
-          diaryContent : cleanBody
+        const response = await API.feedback("/feedback", {
+          diaryContent: cleanBody
+        }, {
+          withCredentials: true
         });
         navigate("/loading");
       } catch (error) {
@@ -38,9 +40,9 @@ const MoodingEat = ({ body }) => {
       isOver: monitor.isOver(),
     }),
   });
-    return(
-        <MoodingEatImage src={Mooding_Eat} ref={dropRef} alt='MoodingEatImage'/>
-    );
+  return (
+    <MoodingEatImage src={Mooding_Eat} ref={dropRef} alt='MoodingEatImage' />
+  );
 }
 
 export default MoodingEat;

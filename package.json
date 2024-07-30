@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^13.5.0",
     "animejs": "^3.2.2",
     "axios": "^1.7.2",
+    "mkcert": "^3.2.0",
     "quill": "^2.0.2",
     "react": "^18.3.1",
     "react-dnd": "^16.0.1",
@@ -44,7 +45,9 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ] 
+    ]
   },
-  "proxy" : "https://6194d3e2-5f7a-441c-bfeb-64d700b326e0.mock.pstmn.io"
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
 }
