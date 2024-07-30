@@ -4,7 +4,7 @@ import resultMoodingImage from "../../lib/images/result-mooding.png";
 import { Wave } from "../common/Wave";
 import titleImg from "../../lib/images/mooding_info3.png";
 import { useNavigate } from "react-router-dom";
-
+//Result.js
 const ResultContainer = styled.div`
   width: 100%;
   height: 100%;
