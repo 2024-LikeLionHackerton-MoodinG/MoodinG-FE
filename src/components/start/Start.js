@@ -67,7 +67,7 @@ const Start = () => {
       } catch (error) {
         console.log(error);
       }
-    }
+    };
     fetchData();
   }, [])
   return (
@@ -84,10 +84,12 @@ const Start = () => {
           <MoodingWord>무딩</MoodingWord>
         </TrashCanContainer>
       </StyledStart>
+      
       {buttonClick ? (
-        <StartExplain buttonClick={buttonClick} setButtonClick={setButtonClick}>
-
-        </StartExplain>
+        <StartExplain
+          buttonClick={buttonClick}
+          setButtonClick={setButtonClick}
+        ></StartExplain>
       ) : (
         <StartButton setButtonClick={setButtonClick}>시작하기</StartButton>
       )}

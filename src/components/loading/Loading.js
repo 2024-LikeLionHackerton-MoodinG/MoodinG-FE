@@ -1,20 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 import Explaination from "./Explaination";
+import { Wave } from "../common/Wave";
 
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f0f0f0;
+const LoadingContainer = styled(Wave)`
+  height: 850px;
+  width: 100%;
 `;
 
 const Loading = () => {
   return (
-    <Container>
+    <LoadingContainer>
       <Explaination motionFinish={true} />
-    </Container>
+    </LoadingContainer>
   );
 };
 
