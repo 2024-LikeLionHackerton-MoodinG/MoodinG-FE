@@ -6,7 +6,7 @@ import trashcan from "../../lib/images/Mooding_trashcan.png";
 import StartButton from "./StartButton";
 import { useEffect, useState } from "react";
 import StartExplain from "./StartExplain";
-import axios from "axios";
+import * as API from "../../lib/api/api";
 
 const StartContainer = styled.div`
   display: flex;
@@ -55,21 +55,21 @@ const MoodingWord = styled.div`
 
 const Start = () => {
   const [buttonClick, setButtonClick] = useState(false);
-  useEffect(()=>{
+  useEffect(() => {
     const fetchData = async () => {
       try {
-        const header = await axios.post(
-         "/session",{},
-         {
-          withCredentials: true
-         }
+        const header = await API.session(
+          "/session", {},
+          {
+            withCredentials: true
+          }
         );
       } catch (error) {
         console.log(error);
       }
     }
     fetchData();
-  },[])
+  }, [])
   return (
     <StartContainer>
       <GlobalFontDNF />

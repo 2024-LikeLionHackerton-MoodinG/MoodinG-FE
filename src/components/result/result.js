@@ -3,6 +3,7 @@ import styled from "styled-components";
 import resultMoodingImage from "../../lib/images/result-mooding.png";
 import { Wave } from "../common/Wave";
 import titleImg from "../../lib/images/mooding_info3.png";
+import { useNavigate } from "react-router-dom";
 
 const ResultContainer = styled.div`
   width: 100%;
@@ -75,7 +76,7 @@ const Button = styled.button`
 const ComunicationContainer = styled.div`
   height: 320px;
   display: flex;
-  alin-itmes: center;
+  align-items: center;
   justify-content: center;
   margin: 10px;
 `;
@@ -88,10 +89,10 @@ const ComuincationBox = styled.div`
 `;
 
 const Result = () => {
+  const navigate = useNavigate();
   return (
     <ResultContainer>
       <GlobalFontDNF />
-
       <BackgrondContainer>
         <TitleContainer>
           <TitleImage src={titleImg} alt="trashCanImg" />
@@ -104,9 +105,10 @@ const Result = () => {
       </ResultMoodingImageContainer>
 
       <ButtonBar>
-        <Button>처음으로</Button>
+        <Button onClick={() => {
+          navigate("/")
+        }}>처음으로</Button>
       </ButtonBar>
-
       <ComunicationContainer>
         <ComuincationBox />
       </ComunicationContainer>
