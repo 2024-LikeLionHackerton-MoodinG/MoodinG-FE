@@ -6,8 +6,7 @@ import styled from "styled-components";
 const AnimationContainer = styled.div`
   width: 250px;
   height: 250px;
-  position: relative;
-  left : 50px;
+  left: 50px;
 `;
 
 const AnimationImg = styled.img`
@@ -19,7 +18,7 @@ const frames = [frame1, frame2];
 
 const MoodingMotion = () => {
   const [currentFrame, setCurrentFrame] = useState(0);
-
+  
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentFrame((prevFrame) => (prevFrame + 1) % frames.length);

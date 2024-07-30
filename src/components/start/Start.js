@@ -55,21 +55,22 @@ const MoodingWord = styled.div`
 
 const Start = () => {
   const [buttonClick, setButtonClick] = useState(false);
-  useEffect(()=>{
+  useEffect(() => {
     const fetchData = async () => {
       try {
         const header = await axios.post(
-         "/session",{},
-         {
-          withCredentials: true
-         }
+          "/session",
+          {},
+          {
+            withCredentials: true,
+          }
         );
       } catch (error) {
         console.log(error);
       }
-    }
+    };
     fetchData();
-  },[])
+  }, []);
   return (
     <StartContainer>
       <GlobalFontDNF />
@@ -84,10 +85,12 @@ const Start = () => {
           <MoodingWord>무딩</MoodingWord>
         </TrashCanContainer>
       </StyledStart>
+      
       {buttonClick ? (
-        <StartExplain buttonClick={buttonClick} setButtonClick={setButtonClick}>
-
-        </StartExplain>
+        <StartExplain
+          buttonClick={buttonClick}
+          setButtonClick={setButtonClick}
+        ></StartExplain>
       ) : (
         <StartButton setButtonClick={setButtonClick}>시작하기</StartButton>
       )}
