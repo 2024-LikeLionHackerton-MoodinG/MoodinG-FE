@@ -11,7 +11,7 @@ import InformationPage from "./pages/InformationPage.js";
 
 const router = createBrowserRouter([
   {
-    path: "/loading",
+    path: "/loading/:id",
     element: <LoadingPage />,
   },
   {
