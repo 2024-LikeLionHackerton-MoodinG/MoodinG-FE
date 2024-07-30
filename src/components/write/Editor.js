@@ -1,10 +1,10 @@
-import styled,{ keyframes } from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Quill from "quill";
 import "quill/dist/quill.bubble.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../../lib/FontAwesome";
-import { useEffect, useRef, useState} from "react";
-import {GlobalFontDNF,GlobalFontDalmoori} from "../../lib/fontSetting";
+import { useEffect, useRef } from "react";
+import { GlobalFontDNF, GlobalFontDalmoori } from "../../lib/fontSetting";
 import Mooding_trashcan from "../../lib/images/Mooding_trashcan.png";
 
 const EditorContainer = styled.div`
@@ -86,7 +86,7 @@ const QuillField = styled.div`
 
 
 
-const Editor = ({setButtonClicked,setBody}) => {
+const Editor = ({ setButtonClicked, setBody }) => {
   const quillElement = useRef(null);
   const quillInstance = useRef(null);
   useEffect(() => {
@@ -101,7 +101,7 @@ const Editor = ({setButtonClicked,setBody}) => {
     });
 
     const quill = quillInstance.current;
-    quill.root.style.fontFamily = "dalmoori, sans-serif"; 
+    quill.root.style.fontFamily = "dalmoori, sans-serif";
 
     quill.on("text-change", () => {
       setBody(quill.root.innerHTML);
@@ -113,14 +113,14 @@ const Editor = ({setButtonClicked,setBody}) => {
 
   return (
     <EditorContainer>
-      <GlobalFontDNF/>
-      <GlobalFontDalmoori/> 
+      <GlobalFontDNF />
+      <GlobalFontDalmoori />
       <StyledEditor>
         <TitleContainer>
           <FontAwesomeIcon
             icon="fa-solid fa-chevron-left"
-            style={{ marginLeft: "10px"}}
-            onClick={()=>{
+            style={{ marginLeft: "10px" }}
+            onClick={() => {
               setButtonClicked(false);
               alert("노트에 감정이 쓰여졌어요!")
             }}
