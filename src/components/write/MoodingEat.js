@@ -22,8 +22,10 @@ const MoodingEat = ({ body }) => {
           diaryContent: cleanBody
         } 
       );
+        console.log(response);
         const locationValue = response.headers.location;
         const id = locationValue.split('/').pop();
+        console.log(id)
         navigate(`/loading/${id}`);
       } catch (error) {
         console.log(error);

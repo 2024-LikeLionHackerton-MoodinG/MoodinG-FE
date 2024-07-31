@@ -3,8 +3,9 @@ import styled from "styled-components";
 import resultMoodingImage from "../../lib/images/result-mooding.png";
 import { Wave } from "../common/Wave";
 import titleImg from "../../lib/images/mooding_info3.png";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import * as API from "../../lib/api/api";
 //Result.js
 const ResultContainer = styled.div`
   width: 100%;
@@ -91,6 +92,19 @@ const ComuincationBox = styled.div`
 
 const Result = () => {
   const navigate = useNavigate();
+  const params = useParams();
+  const [content,setContent] = useState("");
+  useEffect(()=>{
+    const fetchData = async () => {
+      try {
+        const response = await API.feedback_content(params);
+        setContent(response.data.result);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchData();
+  })
   return (
     <ResultContainer>
       <GlobalFontDNF />
@@ -100,7 +114,6 @@ const Result = () => {
           <Title>배불러용</Title>
         </TitleContainer>
       </BackgrondContainer>
-
       <ResultMoodingImageContainer>
         <ResultMoodingImage src={resultMoodingImage} alt="result mooding img" />
       </ResultMoodingImageContainer>
@@ -112,6 +125,7 @@ const Result = () => {
       </ButtonBar>
       <ComunicationContainer>
         <ComuincationBox>
+          {content}
         </ComuincationBox>
       </ComunicationContainer>
     </ResultContainer>
