@@ -4,6 +4,7 @@ import resultMoodingImage from "../../lib/images/result-mooding.png";
 import { Wave } from "../common/Wave";
 import titleImg from "../../lib/images/mooding_info3.png";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 //Result.js
 const ResultContainer = styled.div`
   width: 100%;
@@ -110,7 +111,8 @@ const Result = () => {
         }}>처음으로</Button>
       </ButtonBar>
       <ComunicationContainer>
-        <ComuincationBox />
+        <ComuincationBox>
+        </ComuincationBox>
       </ComunicationContainer>
     </ResultContainer>
   );
