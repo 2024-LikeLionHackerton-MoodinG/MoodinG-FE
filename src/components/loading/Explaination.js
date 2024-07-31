@@ -4,7 +4,7 @@ import trashcan from "../../lib/images/Mooding_trashcan.png";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import MoodingMotion from "./MoodingMotion";
-import axios from "axios";
+import * as API from "../../lib/api/api";
 
 const ExplainationContainer = styled.div``;
 
@@ -55,7 +55,7 @@ const Explaination = ({ motionFinish }) => {
     let intervalId;
     const fetchData = async () => {
       try {
-        const response = await axios.get(`/feedback/status/${id}`);
+        const response = await API.feedback_status({id});
         const statusFromResponse = response.data.status;  //"IN PROGRESS" or "DONE"이 됩니다. 
         setStatus(statusFromResponse);
         console.log(status);

@@ -59,15 +59,13 @@ const Start = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const header = await axios.post(
-          "/session"
-        );
+        const header = await API.session();
       } catch (error) {
         console.log(error);
       }
     };
     fetchData();
-  }, [])
+  }, []);
   return (
     <StartContainer>
       <GlobalFontDNF />
