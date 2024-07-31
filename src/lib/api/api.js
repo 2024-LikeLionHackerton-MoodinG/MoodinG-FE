@@ -4,7 +4,7 @@ export const session = () => {
   return client.post("/session");
 };
 
-export const feedback = (data) => {
+export const feedback = ({ data }) => {
   return client.post("/feedback", data, {
     headers: {
       "Content-Type": "application/json",
