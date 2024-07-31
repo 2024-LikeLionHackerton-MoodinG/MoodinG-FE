@@ -18,7 +18,7 @@ const MoodingEat = ({ body }) => {
     async (item, monitor) => {
       const cleanBody = RemoveHTMLTags(body);
       try {
-        const response = await axios.post("/feedback", {
+        const response = await API.feedback({
           diaryContent: cleanBody
         });
         const locationValue = response.headers.location;
