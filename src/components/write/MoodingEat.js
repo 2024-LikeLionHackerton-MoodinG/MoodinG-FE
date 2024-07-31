@@ -20,12 +20,7 @@ const MoodingEat = ({ body }) => {
       try {
         const response = await API.feedback({
           diaryContent: cleanBody
-        },
-        {
-          headers: {
-            'Content-Type': 'application/json', 
-          },
-        }
+        } 
       );
         const locationValue = response.headers.location;
         const id = locationValue.split('/').pop();
