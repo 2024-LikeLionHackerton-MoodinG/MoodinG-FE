@@ -14,10 +14,10 @@ const MoodingEat = ({ body }) => {
   const navigate = useNavigate();
 
   const drop = useCallback(
-    async (item, monitor) => {
+    (item, monitor) => {
       const cleanBody = RemoveHTMLTags(body);
       try {
-        const response = await API.feedback({
+        const response = API.feedback({
           diaryContent: cleanBody
         }
         );
