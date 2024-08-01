@@ -17,7 +17,7 @@ const AnimationContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 150px;
+  margin-top: 16dvh;
   gap: 10px;
 `;
 
@@ -33,21 +33,21 @@ const BottomImgContainer = styled.div`
 `;
 
 const CloudIcon = styled.img`
-  height: 110px;
-  width: 120px;
+  height: 11dvh;
+  width: 17dvw;
 `;
 const MoonIcon = styled.img`
-  height: 150px;
-  width: 150px;
+  height: 13dvh;
+  width:  18dvw;
 `;
 
 const BottomBackgroundContainer = styled.div`
   display: flex;
   align-items: flex-end;
-  height: 280px;
+  height: 29.5dvh;
   width: 100%;
 `;
-const BottonClound = styled.img`
+const BottomCloud = styled.img`
   width: 100%;
 `;
 
@@ -95,7 +95,7 @@ const Explaination = ({ motionFinish }) => {
         </BottomImgContainer>
       </AnimationContainer>
       <BottomBackgroundContainer>
-        <BottonClound src={bottomCloundImg} />
+        <BottomCloud src={bottomCloundImg} />
       </BottomBackgroundContainer>
     </ExplainationContainer>
   );
