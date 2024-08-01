@@ -1,17 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 import Explaination from "./Explaination";
-import { Wave } from "../common/Wave";
 
-const LoadingContainer = styled(Wave)`
-  height: 850px;
+const LoadingContainer = styled.div`
+  height: 930;
   width: 100%;
+  background: linear-gradient(#ffecb6, #fcf082);
+  position: relative;
+  overflow: hidden;
 `;
 
 const Loading = () => {
   return (
     <LoadingContainer>
-      <Explaination motionFinish={true} />
+      <Explaination />
     </LoadingContainer>
   );
 };
