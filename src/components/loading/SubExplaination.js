@@ -11,7 +11,7 @@ const SubExplainTextContainer = styled.div`
 
 const SubExplainTextStyle = styled.div`
   font-family: "DNFBitBitv2", sans-serif;
-  font-size: 50px;
+  font-size: 5dvh;
   font-weight: bold;
   background: linear-gradient(#fcc101, #f26804);
   -webkit-background-clip: text;

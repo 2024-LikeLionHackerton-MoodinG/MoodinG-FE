@@ -15,10 +15,10 @@ const StyledStartExplain = styled.div`
 `;
 
 const ExplainDiv = styled.div`
-  width: 93%;
-`
+  width: 88%;
+`;
 
-const StartExplain = ({ buttonClick }) => {
+const StartExplain = () => {
   const typeItRef = useRef(null);
   const navigate = useNavigate();
 

@@ -86,7 +86,6 @@ const QuillField = styled.div`
 `;
 
 
-
 const Editor = ({ setButtonClicked, setBody }) => {
   const quillElement = useRef(null);
   const quillInstance = useRef(null);
@@ -107,6 +106,7 @@ const Editor = ({ setButtonClicked, setBody }) => {
     quill.on("text-change", () => {
       setBody(quill.root.innerHTML);
     });
+
     return () => {
       quill.off("text-change");
     };
@@ -123,7 +123,7 @@ const Editor = ({ setButtonClicked, setBody }) => {
             style={{ marginLeft: "10px" }}
             onClick={() => {
               setButtonClicked(false);
-              alert("노트에 감정이 쓰여졌어요!")
+              alert("노트에 감정이 쓰여졌어요!");
             }}
           />
           <TitleBar>

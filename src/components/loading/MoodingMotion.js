@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const AnimationContainer = styled.div`
-  width: 250px;
-  height: 250px;
+  width: 35dvw;
+  height:28dvh;
   left: 50px;
 `;
 
