@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import infoImg1 from "../../lib/images/mooding_info1.png"; // 캐릭터 정보
 import infoImg2 from "../../lib/images/mooding_info2.png"; // 이용약관
+import { useNavigate } from "react-router-dom";
 
 const ButtonsContainer = styled.div`
   display: flex;
@@ -48,17 +49,22 @@ const InfoImg = styled.img`
 
 
 const InfoButtons = () => {
+  const navigate = useNavigate();
   return (
     <ButtonsContainer>
       <EachContainer>
-        <InfoButton>
+        <InfoButton onClick={() => {
+          navigate("/information/character");
+        }}>
           <InfoImg src={infoImg1} width="30px" />
           캐릭터 정보
         </InfoButton>
       </EachContainer>
 
       <EachContainer>
-        <InfoButton>
+        <InfoButton onClick={() => {
+          navigate("/information/guide");
+        }}>
           <InfoImg src={infoImg2} width="40px" />
           사용자 가이드
         </InfoButton>
