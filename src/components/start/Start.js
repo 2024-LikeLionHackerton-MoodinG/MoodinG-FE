@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 import StartExplain from "./StartExplain";
 import * as API from "../../lib/api/api";
 import bottomImg from "../../lib/images/BottomForestImg.png";
-import axios from "axios";
 
 const StartContainer = styled.div`
   display: flex;
@@ -25,8 +24,8 @@ const StyledStart = styled(Wave)`
 `;
 
 const StyledStartMoodingImage = styled.img`
-  width: 350px;
-  height: 350px;
+  width: 250px;
+  height: 250px;
 `;
 
 const SubExplainDiv = styled.div`
@@ -58,7 +57,7 @@ const MoodingWord = styled.div`
 const BottomContainer = styled.div`
   display: flex;
   align-items: flex-end;
-  height: 180px;
+  height: 23dvh;
   width: 100%;
 `;
 const BottomImg = styled.img`

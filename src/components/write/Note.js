@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import moodingNote from "../../lib/images/mooding_note.png";
-import TitleContainerComponent from "../common/TitleContainerComponent";
 import { GlobalFontDNF } from "../../lib/fontSetting";
 import { useDrag } from "react-dnd";
 
@@ -22,9 +21,9 @@ const NoteImgButton = styled.button`
     width: 140px;
     height: 140px;
     background-image: url(${moodingNote});
+    background-repeat: no-repeat;
     border: none;
-    background-color: transparent;
-    margin-top: 250px;
+    background-color: transparent; 
     cursor: pointer;
     touch-action: none;
 `;
@@ -40,7 +39,6 @@ const Note = ({ setNoteClicked }) => {
     return (
         <StyledNote>
             <GlobalFontDNF />
-            <TitleContainerComponent />
             <NoteContainer isDragging={isDragging}>
                 <NoteImgButton ref={drag} onClick={() => {
                     setNoteClicked(true);

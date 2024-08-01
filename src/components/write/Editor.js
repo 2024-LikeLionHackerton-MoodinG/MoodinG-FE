@@ -44,7 +44,7 @@ const crumpleAndExpand = keyframes`
 
 const StyledEditor = styled.div`
   width: 100%;
-  height: 690px;
+  height: 70dvh;
   background-color: #fafbed;
   border-radius: 20px;
   margin-top: 10px;
@@ -52,6 +52,7 @@ const StyledEditor = styled.div`
   animation: ${crumpleAndExpand} 1s ease-out forwards;
   transform-style: preserve-3d;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+
 `;
 
 const Title = styled.p`

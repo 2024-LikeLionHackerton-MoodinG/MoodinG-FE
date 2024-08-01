@@ -6,10 +6,11 @@ const ButtonsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 333px;
+  height: 20dvh;
+  z-index:1;
 `;
 const StyledStartButton = styled.button`
-  margin-top: 100px;
+  margin-top: 10dvh;
   bottom: 150px;
   color: black;
   border: 3px solid black;
@@ -17,8 +18,8 @@ const StyledStartButton = styled.button`
   background-color: #fafbed;
   font-family: "DNFBitBitv2", sans-serif;
   border-radius: 20px;
-  min-height: 70px;
-  min-width: 340px;
+  min-height: 7dvh;
+  min-width: 300px;
   cursor: pointer;
   transition: background-color 0.1s;
   &:active {
@@ -26,7 +27,7 @@ const StyledStartButton = styled.button`
     background-color: #fafaa0;
     opacity: 75%;
   }
-  box-shadow: 2px 2px 2px;
+  box-shadow: 2px 2px 2px gray;
 `;
 
 const InformationButtonContainer = styled.div`
