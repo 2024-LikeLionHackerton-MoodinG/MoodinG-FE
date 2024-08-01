@@ -11,7 +11,12 @@ const StyledStartExplain = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items:center;
 `;
+
+const ExplainDiv = styled.div`
+  width: 93%;
+`
 
 const StartExplain = ({ buttonClick }) => {
   const typeItRef = useRef(null);
@@ -39,7 +44,7 @@ const StartExplain = ({ buttonClick }) => {
 
   return (
     <StyledStartExplain>
-      <div ref={typeItRef}></div>
+      <ExplainDiv ref={typeItRef}></ExplainDiv>
     </StyledStartExplain>
   );
 };
