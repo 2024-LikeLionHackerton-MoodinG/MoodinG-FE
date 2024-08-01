@@ -26,6 +26,7 @@ const NoteImgButton = styled.button`
     background-color: transparent;
     margin-top: 250px;
     cursor: pointer;
+    touch-action: none;
 `;
 
 const Note = ({ setNoteClicked }) => {
