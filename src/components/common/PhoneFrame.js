@@ -10,7 +10,7 @@ const StyledPhoneFrame = styled.div`
 
     /* 미디어 쿼리 - 휴대폰) */
     @media (max-width: 480px) {
-        width: 100vw;
+        width: 95vw;
         height:100vh;
         border: none;
     }
