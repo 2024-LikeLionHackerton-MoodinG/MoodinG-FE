@@ -2,8 +2,9 @@ import styled from "styled-components";
 import { GlobalFontDNF } from "../../lib/fontSetting";
 import { Wave } from "../common/Wave";
 import moodingInfoTop from "../../lib/images/mooding_info_top.png";
-import startMoodingImage from "../../lib/images/start-mooding.png";
+import startMoodingImage from "../../lib/images/MoodingImformationImg.png";
 import InfoButtons from "./InfoButtons";
+import bottomImg from "../../lib/images/BottomForestImg.png";
 
 const InformationContainer = styled.div``;
 
@@ -38,7 +39,17 @@ const MoodingImgContainer = styled.div`
   height: 400px;
 `;
 const StartMoodingImage = styled.img`
-  width: 300px;
+  width: 380px;
+`;
+
+const BottomContainer = styled.div`
+  display: flex;
+  align-items: flex-end;
+  height: 180px;
+  width: 100%;
+`;
+const BottomImg = styled.img`
+  width: 100%;
 `;
 
 const Information = () => {
@@ -57,6 +68,9 @@ const Information = () => {
       </MoodingImgContainer>
 
       <InfoButtons />
+      <BottomContainer>
+        <BottomImg src={bottomImg} />
+      </BottomContainer>
     </InformationContainer>
   );
 };
