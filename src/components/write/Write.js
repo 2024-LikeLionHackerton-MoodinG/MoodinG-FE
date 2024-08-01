@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import MoodingEat from './MoodingEat';
 import CustomDragLayer from './CustomDragLayer';
 import TitleContainerComponent from '../common/TitleContainerComponent';
+import { GlobalFontDNF } from '../../lib/fontSetting';
 
 const StyledWriteContainer = styled.div`
   display:flex;
@@ -19,23 +20,35 @@ const NoteContainer = styled.div`
   width:92%;
 `
 
+const EatWellDiv = styled.div`
+  font-size: 22ㅑx;
+  font-family: 'DNFBitBitv2',sans-serif;
+`
+
 const Write = () => {
   const [buttonClicked, setButtonClicked] = useState(false);
   const [body, setBody] = useState("");
+  const [dropped, setDropped] = useState(false);
   return (
     <StyledWriteContainer>
+      <GlobalFontDNF />
       {
         !buttonClicked && <TitleContainerComponent />
       }
-      <NoteContainer>
-        {buttonClicked ? (
-          <Editor setButtonClicked={setButtonClicked} setBody={setBody} />
-        ) : (
-          <Note setNoteClicked={setButtonClicked} />
-        )}
-      </NoteContainer>
-
-      <MoodingEat body={body} />
+      {!dropped ? (
+        <NoteContainer>
+          {buttonClicked ? (
+            <Editor setButtonClicked={setButtonClicked} setBody={setBody} />
+          ) : (
+            <Note setNoteClicked={setButtonClicked} />
+          )}
+        </NoteContainer>
+      ) : (
+        <EatWellDiv>
+          냠냠냠... 감정을 먹고 있어요
+        </EatWellDiv>
+      )}
+      <MoodingEat body={body} setDropped={setDropped} />
       <CustomDragLayer />
     </StyledWriteContainer>
   );

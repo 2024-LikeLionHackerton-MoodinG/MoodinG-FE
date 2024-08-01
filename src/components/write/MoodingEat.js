@@ -10,12 +10,13 @@ const MoodingEatImage = styled.img`
   width:400px;
   height:165px;
 `;
-const MoodingEat = ({ body }) => {
+const MoodingEat = ({ body, setDropped }) => {
   const navigate = useNavigate();
 
   const drop = useCallback(
     async (item, monitor) => {
       const cleanBody = RemoveHTMLTags(body);
+      setDropped(true);
       try {
         const response = await API.feedback({
           diaryContent: cleanBody
@@ -26,11 +27,12 @@ const MoodingEat = ({ body }) => {
         const id = locationValue.split('/').pop();
         console.log(id)
         navigate(`/loading/${id}`);
+        setDropped(false);
       } catch (error) {
         console.log(error);
       }
     },
-    [body, navigate]
+    [body, navigate, setDropped]
   );
 
   const [{ isOver }, dropRef] = useDrop({
