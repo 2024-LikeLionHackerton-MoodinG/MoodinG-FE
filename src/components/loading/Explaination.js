@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { GlobalFontDNF } from "../../lib/fontSetting";
-import trashcan from "../../lib/images/Mooding_trashcan.png";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import MoodingMotion from "./MoodingMotion";

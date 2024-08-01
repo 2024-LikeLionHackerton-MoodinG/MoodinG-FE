@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import startMoodingImage from "../../lib/images/start-mooding.png";
+import startMoodingImage from "../../lib/images/ModingStartImg.png";
 import { GlobalFontDNF } from "../../lib/fontSetting";
 import { Wave } from "../common/Wave";
 import trashcan from "../../lib/images/Mooding_trashcan.png";
@@ -7,6 +7,7 @@ import StartButton from "./StartButton";
 import { useEffect, useState } from "react";
 import StartExplain from "./StartExplain";
 import * as API from "../../lib/api/api";
+import bottomImg from "../../lib/images/BottomForestImg.png";
 import axios from "axios";
 
 const StartContainer = styled.div`
@@ -24,8 +25,8 @@ const StyledStart = styled(Wave)`
 `;
 
 const StyledStartMoodingImage = styled.img`
-  width: 240px;
-  height: 285px;
+  width: 350px;
+  height: 350px;
 `;
 
 const SubExplainDiv = styled.div`
@@ -52,6 +53,16 @@ const TrashCanImg = styled.img`
 const MoodingWord = styled.div`
   font-family: "DNFBitBitv2", sans-serif;
   font-size: 36px;
+`;
+
+const BottomContainer = styled.div`
+  display: flex;
+  align-items: flex-end;
+  height: 180px;
+  width: 100%;
+`;
+const BottomImg = styled.img`
+  width: 100%;
 `;
 
 const Start = () => {
@@ -87,8 +98,12 @@ const Start = () => {
           setButtonClick={setButtonClick}
         ></StartExplain>
       ) : (
-        <StartButton setButtonClick={setButtonClick}>시작하기</StartButton>
+        <StartButton setButtonClick={setButtonClick}>무딩 시작하기</StartButton>
       )}
+
+      <BottomContainer>
+        <BottomImg src={bottomImg} />
+      </BottomContainer>
     </StartContainer>
   );
 };

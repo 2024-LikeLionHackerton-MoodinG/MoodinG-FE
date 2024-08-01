@@ -1,11 +1,12 @@
 import { GlobalFontDNF } from "../../lib/fontSetting";
 import styled from "styled-components";
-import resultMoodingImage from "../../lib/images/result-mooding.png";
+import resultMoodingImage from "../../lib/images/ModingResutImg.png";
 import { Wave } from "../common/Wave";
 import titleImg from "../../lib/images/mooding_info3.png";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import * as API from "../../lib/api/api";
+import bottomImg from "../../lib/images/BottomForestImg.png";
 //Result.js
 const ResultContainer = styled.div`
   width: 100%;
@@ -35,13 +36,13 @@ const Title = styled.p`
 
 const ResultMoodingImageContainer = styled.div`
   width: 100%;
-  height: 350px;
+  height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 const ResultMoodingImage = styled.img`
-  width: 300px;
+  width: 390px;
 `;
 
 const ButtonBar = styled.div`
@@ -57,12 +58,12 @@ const ButtonBar = styled.div`
 const Button = styled.button`
   color: white;
   border: 3px solid black;
-  font-size: 25px;
+  font-size: 20px;
   background-color: black;
   font-family: "DNFBitBitv2", sans-serif;
   border-radius: 20px;
-  height: 50px;
-  width: 200px;
+  height: 30px;
+  width: 150px;
   cursor: pointer;
   transition: background-color 0.1s;
 
@@ -76,7 +77,7 @@ const Button = styled.button`
 `;
 
 const ComunicationContainer = styled.div`
-  height: 320px;
+  height: 250px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,17 +85,27 @@ const ComunicationContainer = styled.div`
 `;
 
 const ComuincationBox = styled.div`
-  width: 380px;
-  height: 290px;
+  width: 100%;
+  height: 200px;
   border: 5px outset rgb(220, 220, 220);
   border-radius: 10px;
+`;
+
+const BottomContainer = styled.div`
+  display: flex;
+  align-items: flex-end;
+  height: 105px;
+  width: 100%;
+`;
+const BottomImg = styled.img`
+  width: 100%;
 `;
 
 const Result = () => {
   const navigate = useNavigate();
   const params = useParams();
-  const [content,setContent] = useState("");
-  useEffect(()=>{
+  const [content, setContent] = useState("");
+  useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await API.feedback_content(params);
@@ -102,9 +113,9 @@ const Result = () => {
       } catch (error) {
         console.log(error);
       }
-    }
+    };
     fetchData();
-  })
+  });
   return (
     <ResultContainer>
       <GlobalFontDNF />
@@ -118,16 +129,23 @@ const Result = () => {
         <ResultMoodingImage src={resultMoodingImage} alt="result mooding img" />
       </ResultMoodingImageContainer>
 
-      <ButtonBar>
-        <Button onClick={() => {
-          navigate("/")
-        }}>처음으로</Button>
-      </ButtonBar>
       <ComunicationContainer>
-        <ComuincationBox>
-          {content}
-        </ComuincationBox>
+        <ComuincationBox>{content}</ComuincationBox>
       </ComunicationContainer>
+
+      <ButtonBar>
+        <Button
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          처음으로
+        </Button>
+      </ButtonBar>
+
+      <BottomContainer>
+        <BottomImg src={bottomImg} />
+      </BottomContainer>
     </ResultContainer>
   );
 };

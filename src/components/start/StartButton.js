@@ -14,7 +14,7 @@ const StyledStartButton = styled.button`
   color: black;
   border: 3px solid black;
   font-size: 25px;
-  background-color: #FAFBED;
+  background-color: #fafbed;
   font-family: "DNFBitBitv2", sans-serif;
   border-radius: 20px;
   min-height: 70px;
@@ -59,11 +59,17 @@ const StartButton = ({ setButtonClick }) => {
           setButtonClick(true);
         }}
       >
-        시작하기
+        무딩 시작하기
       </StyledStartButton>
       <InformationButtonContainer>
         <InformationImg src={smallMooding2}></InformationImg>
-        <InformationButton onClick={()=>{navigate("/information")}}>알아보기</InformationButton>
+        <InformationButton
+          onClick={() => {
+            navigate("/information");
+          }}
+        >
+          알아보기
+        </InformationButton>
       </InformationButtonContainer>
     </ButtonsContainer>
   );
