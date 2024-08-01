@@ -4,7 +4,7 @@ import Start from '../components/start/Start';
 const StartPage = () => {
     return (
         <PhoneFrame>
-            <Start/>
+            <Start />
         </PhoneFrame>
     );
 };

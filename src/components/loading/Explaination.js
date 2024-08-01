@@ -9,15 +9,16 @@ import cloudIcon from "../../lib/images/CloudIcon.png";
 import moonIcon from "../../lib/images/MoonIcon.png";
 import * as API from "../../lib/api/api";
 import SubExplain from "./SubExplaination";
+import { isMobile } from "react-device-detect";
 
 const ExplainationContainer = styled.div``;
 
-const AnimationContainer = styled.div`
+const AnimationContainer = styled.div` 
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 16dvh;
+  margin-top: ${isMobile ? "8dvh" : "18dvh"};
   gap: 10px;
 `;
 
@@ -43,8 +44,7 @@ const MoonIcon = styled.img`
 
 const BottomBackgroundContainer = styled.div`
   display: flex;
-  align-items: flex-end;
-  height: 29.5dvh;
+  height: 29dvh;
   width: 100%;
 `;
 const BottomCloud = styled.img`
