@@ -16,13 +16,13 @@ const StyledStartExplain = styled.div`
 const StartExplain = ({ buttonClick }) => {
   const typeItRef = useRef(null);
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     const instance = new TypeIt(typeItRef.current, {
       strings:
         "무딩이에게 당신이 오늘 겪었던 힘든 일이나 안 좋은 일들을 먹여주세요.",
       speed: 100,
-      waitUntilVisible: true,
+      waitUntilVisible: false,
       afterComplete: () => {
         setTimeout(() => {
           navigate("/write");
