@@ -55,7 +55,7 @@ const Explaination = ({ motionFinish }) => {
     let intervalId;
     const fetchData = async () => {
       try {
-        const response = await API.feedback_status({id});
+        const response = await API.feedback_status({ id });
         const statusFromResponse = response.data.status;  //"IN PROGRESS" or "DONE"이 됩니다. 
         setStatus(statusFromResponse);
         console.log(status);

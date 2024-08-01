@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import * as API from "../../lib/api/api";
 import { useCallback } from "react";
 import RemoveHTMLTags from "../../lib/RemoveHTMLTags";
-import axios from "axios";
 
 const MoodingEatImage = styled.img`
   width:400px;
@@ -20,8 +19,8 @@ const MoodingEat = ({ body }) => {
       try {
         const response = await API.feedback({
           diaryContent: cleanBody
-        } 
-      );
+        }
+        );
         console.log(response);
         const locationValue = response.headers.location;
         const id = locationValue.split('/').pop();
