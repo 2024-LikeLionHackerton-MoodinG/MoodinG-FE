@@ -5,7 +5,6 @@ export const Wave = styled.div`
   background: linear-gradient(#ffecb6, #fcf082);
   position: relative;
   overflow: hidden;
-
   &::after {
     content: "";
     position: absolute;

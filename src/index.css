@@ -8,8 +8,7 @@ body {
   min-height: 100%;
   display: flex;
   justify-content: center;
-  overflow-y: hidden;
-  overflow-x: hidden;
+  overflow:hidden;
 }
 #root {
   min-height: 100%;

@@ -7,7 +7,7 @@ const StyledStartExplain = styled.div`
   font-family: "DNFBitBitv2", sans-serif;
   font-size: 20px;
   color: #000;
-  height: 333px;
+  height: 30dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
