@@ -90,7 +90,7 @@ const GuidePage = () => {
               navigate("/information");
             }}
           >
-            <ArrowBackIosSharpIcon fontSize="medium" />
+            <ArrowBackIosSharpIcon fontSize="medium" style={{ cursor: "pointer" }} />
           </ReturnPageContainer>
           <GuideIntroContainer>
             <IntroImg src={infoImg2} alt="infoImg1" />

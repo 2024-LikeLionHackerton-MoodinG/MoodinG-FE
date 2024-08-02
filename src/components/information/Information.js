@@ -72,7 +72,7 @@ const Information = () => {
             navigate("/");
           }}
         >
-          <ArrowBackIosSharpIcon fontSize="medium" />
+          <ArrowBackIosSharpIcon fontSize="medium" style={{ cursor: "pointer" }} />
         </ReturnPageContainer>
         <IntroContainer>
           <IntroImg src={moodingInfoTop} alt="mooding info top img" />
