@@ -54,7 +54,7 @@ const GuideExplanationContainer = styled.div`
 `;
 
 const EachGuideExplanation = styled.div`
-  height: 90px;
+  height: 10dvh;
   display: flex;
   align-items: center;
   justify-content: left;
