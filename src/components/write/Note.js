@@ -28,7 +28,9 @@ const NoteImgButton = styled.button`
     touch-action: none;
 `;
 
-const Note = ({ setNoteClicked }) => {
+
+
+const Note = ({ setButtonClicked, setNoteButtonClick }) => {
     const [{ isDragging }, drag] = useDrag(() => ({
         type: 'NOTE',
         collect: (monitor) => ({
@@ -41,7 +43,8 @@ const Note = ({ setNoteClicked }) => {
             <GlobalFontDNF />
             <NoteContainer isDragging={isDragging}>
                 <NoteImgButton ref={drag} onClick={() => {
-                    setNoteClicked(true);
+                    setButtonClicked(true);
+                    setNoteButtonClick(true);
                 }} />
             </NoteContainer>
         </StyledNote>

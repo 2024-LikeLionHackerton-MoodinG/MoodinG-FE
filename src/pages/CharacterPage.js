@@ -73,7 +73,7 @@ const WordsInfo = styled.div`
 const TwoImgContainer = styled.div`
   height: 20dvw;
   display: flex;
-  margin: 5dvw;
+  margin-bottom: 5dvw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -128,8 +128,6 @@ const CharacterPage = () => {
               <br />
               이제 무딩이와 함께 더 가벼워진 마음으로 하루를 마무리하세요!💞
             </WordsInfo>
-
-
             <TwoImgContainer>
               <img width={85} src={CharacterImg1} alt="Img1" />
               <img width={100} src={CharacterImg2} alt="Img2" />

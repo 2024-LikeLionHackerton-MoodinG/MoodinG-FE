@@ -8,6 +8,7 @@ import TitleContainerComponent from "../common/TitleContainerComponent";
 import { GlobalFontDNF } from "../../lib/fontSetting";
 import { Wave } from "../common/Wave";
 import clickImg from "../../lib/images/ClickPointer.png";
+import FeedME from "../../lib/images/FeedMe.png";
 
 const StyledWriteContainer = styled.div`
   display: flex;
@@ -63,14 +64,27 @@ const EatWellDiv = styled.div`
   font-family: "DNFBitBitv2", sans-serif;
 `;
 
+const FeedMeImg = styled.img`
+  width:40dvw;
+  height: 4dvh;
+  animation : ${blink} 1s infinite;
+`
+
+const MoodingMouthContainer = styled.div`
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+`
+
 const Write = () => {
   const [buttonClicked, setButtonClicked] = useState(false);
   const [body, setBody] = useState("");
   const [dropped, setDropped] = useState(false);
+  const [noteButtonClick, setNoteButtonClick] = useState(false);
+  const [feedMeImg, setFeedMeImg] = useState(false);
   return (
     <StyledWriteContainer>
       <GlobalFontDNF />
-
       {!buttonClicked && (
         <WritePageTopBackgroundContainer>
           <TitleContainerComponent />
@@ -80,20 +94,34 @@ const Write = () => {
       {!dropped ? (
         <NoteContainer>
           {buttonClicked ? (
-            <Editor setButtonClicked={setButtonClicked} setBody={setBody} />
+            <Editor setButtonClicked={setButtonClicked} setBody={setBody} setFeedMeImg={setFeedMeImg} />
           ) : (
             <EditorContainer>
-              <Note setNoteClicked={setButtonClicked} />
-              <ClickImgContainer>
-                <ClickImg src={clickImg} />
-              </ClickImgContainer>
+              <Note setButtonClicked={setButtonClicked} setNoteButtonClick={setNoteButtonClick} />
+              {
+                noteButtonClick ? (
+                  <></>
+                ) : (
+                  <ClickImgContainer>
+                    <ClickImg src={clickImg} />
+                  </ClickImgContainer>
+                )
+              }
+
             </EditorContainer>
           )}
         </NoteContainer>
       ) : (
         <EatWellDiv>냠냠냠... 감정을 먹고 있어요</EatWellDiv>
       )}
-      <MoodingEat body={body} setDropped={setDropped} />
+
+      <MoodingMouthContainer>
+        {
+          feedMeImg && <FeedMeImg src={FeedME} alt="FeedMe" />
+        }
+        <MoodingEat body={body} setDropped={setDropped} />
+      </MoodingMouthContainer>
+
       <CustomDragLayer />
     </StyledWriteContainer>
   );
