@@ -117,7 +117,7 @@ const QuillField = styled.div`
   height: 500px;
 `;
 
-const Editor = ({ setButtonClicked, setBody }) => {
+const Editor = ({ setButtonClicked, setBody, setFeedMeImg }) => {
   const quillElement = useRef(null);
   const quillInstance = useRef(null);
   useEffect(() => {
@@ -154,7 +154,8 @@ const Editor = ({ setButtonClicked, setBody }) => {
             style={{ marginLeft: "10px" }}
             onClick={() => {
               setButtonClicked(false);
-              alert("노트에 감정이 쓰여졌어요!");
+              setFeedMeImg(true);
+              alert(`노트에 감정이 쓰여졌어요!\n무딩이의 입에 노트를 드래그해주세요!`);
             }}
           />
           <TitleBar>
