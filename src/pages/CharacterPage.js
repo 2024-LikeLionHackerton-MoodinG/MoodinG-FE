@@ -47,14 +47,15 @@ const IntroText = styled.div`
 
 const CharacterInfoContainer = styled.div`
   width: 100%;
-  height: 57dvh;
+  height: 60dvh;
   display: flex;
   align-items: center;
+  justify-content:center;
 `;
 
 const CharacterInfo = styled.div`
-  margin: 30px;
-  padding: 25px;
+  width: 80%;
+  padding: 2dvw;
   border-radius: 10px;
   border: solid 2px;
   height: 370px;
@@ -62,22 +63,27 @@ const CharacterInfo = styled.div`
   font-family: "DNFBitBitv2", sans-serif;
   background-color: rgb(255, 255, 240);
   flex-wrap: wrap;
+  box-shadow: 2px 2px 2px gray;
+`;
+
+const WordsInfo = styled.div`
+  
 `;
 
 const TwoImgContainer = styled.div`
-  height: 80px;
+  height: 20dvw;
   display: flex;
-  margin: 20px;
+  margin: 5dvw;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 50px;
+  gap: 8.5dvw;
 `;
 
 const BottomContainer = styled.div`
   display: flex;
   align-items: flex-end;
-  height: 23dvh;
+  height: 20dvh;
   width: 100%;
 `;
 const BottomImg = styled.img`
@@ -97,7 +103,7 @@ const CharacterPage = () => {
               navigate("/information");
             }}
           >
-            <ArrowBackIosSharpIcon fontSize="medium" />
+            <ArrowBackIosSharpIcon fontSize="medium" style={{ cursor: "pointer", }} />
           </ReturnPageContainer>
           <CharacterIntroContainer>
             <IntroImg src={infoImg1} alt="infoImg1" />
@@ -107,19 +113,23 @@ const CharacterPage = () => {
 
         <CharacterInfoContainer>
           <CharacterInfo>
-            무딩(<span style={{ color: "red" }}>Mood in g</span>
-            arbage)이는 포근하고 둥글둥글한 외형을 가진 귀여운 캐릭터입니다.💞
-            <br />
-            <br />
-            반짝이는 큰 눈과, 따듯한 미소를 짓고 있는 입은 사용자의 나쁜감정을
-            부드럽게 삼켜줍니다.💞
-            <br />
-            <br />
-            감정을 먹어치운 무딩이는 당신에게 따뜻한 격려의 말과 함께 당신을
-            위로해 줍니다.💞
-            <br />
-            <br />
-            이제 무딩이와 함께 더 가벼워진 마음으로 하루를 마무리하세요!💞
+            <WordsInfo>
+              무딩(<span style={{ color: "red" }}>Mood In G</span>
+              arbage)이는 포근하고 둥글둥글한 외형을 가진 귀여운 캐릭터입니다.💞
+              <br />
+              <br />
+              반짝이는 큰 눈과, 따듯한 미소를 짓고 있는 입은 사용자의 나쁜감정을
+              부드럽게 삼켜줍니다.💞
+              <br />
+              <br />
+              감정을 먹어치운 무딩이는 당신에게 따뜻한 격려의 말과 함께 당신을
+              위로해 줍니다.💞
+              <br />
+              <br />
+              이제 무딩이와 함께 더 가벼워진 마음으로 하루를 마무리하세요!💞
+            </WordsInfo>
+
+
             <TwoImgContainer>
               <img width={85} src={CharacterImg1} alt="Img1" />
               <img width={100} src={CharacterImg2} alt="Img2" />
