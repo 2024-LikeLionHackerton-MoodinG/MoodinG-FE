@@ -10,7 +10,7 @@ const StyledNote = styled.div`
 `;
 
 const NoteContainer = styled.div`
-    height: 100%;
+    height: 5dvh;
     display: flex;
     justify-content: center;
     align-items: center;
