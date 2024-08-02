@@ -10,12 +10,11 @@ import bottomImg from "../../lib/images/BottomForestImg.png";
 //Result.js
 const ResultContainer = styled.div`
   width: 100%;
-  height: 100%;
 `;
 
 const BackgrondContainer = styled(Wave)`
   width: 100%;
-  height: 200px;
+  height: 20dvh;
 `;
 const TitleContainer = styled.div`
   display: flex;
@@ -23,7 +22,7 @@ const TitleContainer = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   width: 430px;
-  height: 150px;
+  height: 15dvh;
 `;
 const TitleImage = styled.img`
   width: 35px;
@@ -36,13 +35,13 @@ const Title = styled.p`
 
 const ResultMoodingImageContainer = styled.div`
   width: 100%;
-  height: 300px;
+  height: 28dvh;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 const ResultMoodingImage = styled.img`
-  width: 390px;
+  width: 280px;
 `;
 
 const ButtonBar = styled.div`
@@ -51,7 +50,7 @@ const ButtonBar = styled.div`
   justify-content: center;
   align-items: center;
   width: 430px;
-  height: 60px;
+  height: 4dvh;
   gap: 20px;
 `;
 
@@ -62,7 +61,7 @@ const Button = styled.button`
   background-color: black;
   font-family: "DNFBitBitv2", sans-serif;
   border-radius: 20px;
-  height: 30px;
+  height: 5dvh;
   width: 150px;
   cursor: pointer;
   transition: background-color 0.1s;
@@ -77,7 +76,7 @@ const Button = styled.button`
 `;
 
 const ComunicationContainer = styled.div`
-  height: 250px;
+  height: 32dvh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -94,7 +93,7 @@ const ComuincationBox = styled.div`
 const BottomContainer = styled.div`
   display: flex;
   align-items: flex-end;
-  height: 105px;
+  height: 14dvh;
   width: 100%;
 `;
 const BottomImg = styled.img`
