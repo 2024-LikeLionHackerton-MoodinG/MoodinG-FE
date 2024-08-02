@@ -88,6 +88,7 @@ const ComuincationBox = styled.div`
   height: 200px;
   border: 5px outset rgb(220, 220, 220);
   border-radius: 10px;
+  font-family: "DNFBitBitv2", sans-serif;
 `;
 
 const BottomContainer = styled.div`
