@@ -65,16 +65,17 @@ const EatWellDiv = styled.div`
 `;
 
 const FeedMeImg = styled.img`
-  width:40dvw;
+  min-width: 150px;
+  width: 15dvw;
   height: 4dvh;
-  animation : ${blink} 1s infinite;
-`
+  animation: ${blink} 1s infinite;
+`;
 
 const MoodingMouthContainer = styled.div`
-  display:flex;
+  display: flex;
   flex-direction: column;
-  align-items:center;
-`
+  align-items: center;
+`;
 
 const Write = () => {
   const [buttonClicked, setButtonClicked] = useState(false);
@@ -94,20 +95,26 @@ const Write = () => {
       {!dropped ? (
         <NoteContainer>
           {buttonClicked ? (
-            <Editor setButtonClicked={setButtonClicked} setBody={setBody} setFeedMeImg={setFeedMeImg} />
+            <Editor
+              setButtonClicked={setButtonClicked}
+              setBody={setBody}
+              setFeedMeImg={setFeedMeImg}
+              setNoteButtonClick={setNoteButtonClick}
+              initialBody = {body}
+            />
           ) : (
             <EditorContainer>
-              <Note setButtonClicked={setButtonClicked} setNoteButtonClick={setNoteButtonClick} />
-              {
-                noteButtonClick ? (
-                  <></>
-                ) : (
-                  <ClickImgContainer>
-                    <ClickImg src={clickImg} />
-                  </ClickImgContainer>
-                )
-              }
-
+              <Note
+                setButtonClicked={setButtonClicked}
+                setNoteButtonClick={setNoteButtonClick}
+              />
+              {noteButtonClick ? (
+                <></>
+              ) : (
+                <ClickImgContainer>
+                  <ClickImg src={clickImg} />
+                </ClickImgContainer>
+              )}
             </EditorContainer>
           )}
         </NoteContainer>
@@ -116,9 +123,7 @@ const Write = () => {
       )}
 
       <MoodingMouthContainer>
-        {
-          feedMeImg && <FeedMeImg src={FeedME} alt="FeedMe" />
-        }
+        {feedMeImg && <FeedMeImg src={FeedME} alt="FeedMe" />}
         <MoodingEat body={body} setDropped={setDropped} />
       </MoodingMouthContainer>
 
