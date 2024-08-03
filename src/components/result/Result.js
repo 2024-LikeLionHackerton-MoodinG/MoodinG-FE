@@ -74,7 +74,7 @@ const Button = styled.button`
   cursor: pointer;
   transition: background-color 0.1s;
   opacity: ${(props) => (props.visible ? 1 : 0)};
-  transition: opacity 0.5s;
+  transition: opacity 1s;
 
   &:active {
     border-width: 4px;
