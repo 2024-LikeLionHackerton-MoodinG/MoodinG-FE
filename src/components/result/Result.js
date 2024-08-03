@@ -12,6 +12,9 @@ import bottomImg from "../../lib/images/BottomForestImg.png";
 // Result.js
 const ResultContainer = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 const BackgrondContainer = styled(Wave)`
@@ -24,7 +27,7 @@ const TitleContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  width: 430px;
+  width: 100%;
   height: 15dvh;
 `;
 
@@ -54,7 +57,7 @@ const ButtonBar = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 430px;
+  width: 100%;
   height: 4dvh;
   gap: 20px;
 `;
@@ -70,6 +73,8 @@ const Button = styled.button`
   width: 150px;
   cursor: pointer;
   transition: background-color 0.1s;
+  opacity: ${(props) => (props.visible ? 1 : 0)};
+  transition: opacity 0.5s;
 
   &:active {
     border-width: 4px;
@@ -114,6 +119,7 @@ const Result = () => {
   const navigate = useNavigate();
   const params = useParams();
   const [content, setContent] = useState("");
+  const [showButton, setShowButton] = useState(false); // 버튼 표시 상태
   const comuincationBoxRef = useRef(null);
 
   useEffect(() => {
@@ -133,15 +139,16 @@ const Result = () => {
       const sentences = content
         .split(/(?<=[.!?])\s+/)
         .filter((sentence) => sentence.trim().length > 0);
-
+      
       new TypeIt(comuincationBoxRef.current, {
         strings: sentences,
-        speed: 100,
+        speed: 90,
         startDelay: 500,
         breakLines: true,
         nextStringDelay: 750,
         cursor: false,
         afterComplete: (instance) => {
+          setShowButton(true); 
           instance.destroy();
         },
       }).go();
@@ -167,6 +174,7 @@ const Result = () => {
 
       <ButtonBar>
         <Button
+          visible={showButton} // 버튼 표시 상태에 따라 가시성 설정
           onClick={() => {
             navigate("/");
           }}
