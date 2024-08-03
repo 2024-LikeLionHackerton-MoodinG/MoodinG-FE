@@ -14,6 +14,7 @@ const EditorContainer = styled.div`
   flex-direction: column;
   width: 100%;
   align-items: center;
+  height:100%;
 `;
 
 const crumpleAndExpand = keyframes`
@@ -84,6 +85,9 @@ const StyledEditor = styled.div`
   animation: ${crumpleAndExpand} 0.5s ease-out forwards;
   transform-style: preserve-3d;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  display:flex;
+  flex-direction: column;
+  justify-content:space-between;
 `;
 
 const Title = styled.p`
@@ -100,8 +104,8 @@ const TitleBar = styled.div`
   justify-content: center;
 `;
 const TrashCanImage = styled.img`
-  width: 31;
-  height: 53.14;
+  width: 31px;
+  height: 53.14px;
   margin-left: 3px;
 `;
 
@@ -116,24 +120,23 @@ const QuillField = styled.div`
   font-size: 15px;
   font-weight: bold;
   overflow-y: hidden;
-  height: 500px;
+  height: 50dvh;
 `;
 
 const SaveContainer = styled.div`
   display:flex;
   flex-direction: row;
   justify-content:center;
-  height: 9dvh;
   align-items: flex-end;
 `;
 
 const SmallTree = styled.img`
-  width : 10dvw;
+  width : 25%;
   height: 9dvh;
 `;
 
 const SaveButton = styled.button`
-  width:9dvw;
+  width:30%;
   height:8dvh;
   border: 2px solid black;
   border-radius: 20px;
@@ -142,8 +145,8 @@ const SaveButton = styled.button`
   font-size: 1.5rem;
   margin-bottom: 1dvh;
   box-shadow: 4px 2px 4px #000000;
-  margin-left: 1px;
-  margin-right: 1px;
+  margin-left: 2rem;
+  margin-right: 2rem; 
   cursor: pointer;
   &:active{
     background-color: #fafaa0;
