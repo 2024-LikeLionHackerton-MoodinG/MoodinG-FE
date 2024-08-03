@@ -4,10 +4,12 @@ import resultMoodingImage from "../../lib/images/ModingResutImg.png";
 import { Wave } from "../common/Wave";
 import titleImg from "../../lib/images/mooding_info3.png";
 import { useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import TypeIt from "typeit";
 import * as API from "../../lib/api/api";
 import bottomImg from "../../lib/images/BottomForestImg.png";
-//Result.js
+
+// Result.js
 const ResultContainer = styled.div`
   width: 100%;
 `;
@@ -16,6 +18,7 @@ const BackgrondContainer = styled(Wave)`
   width: 100%;
   height: 20dvh;
 `;
+
 const TitleContainer = styled.div`
   display: flex;
   align-items: center;
@@ -24,6 +27,7 @@ const TitleContainer = styled.div`
   width: 430px;
   height: 15dvh;
 `;
+
 const TitleImage = styled.img`
   width: 35px;
 `;
@@ -40,6 +44,7 @@ const ResultMoodingImageContainer = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
 const ResultMoodingImage = styled.img`
   width: 280px;
 `;
@@ -76,7 +81,7 @@ const Button = styled.button`
 `;
 
 const ComunicationContainer = styled.div`
-  height: 32dvh;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,10 +90,13 @@ const ComunicationContainer = styled.div`
 
 const ComuincationBox = styled.div`
   width: 100%;
-  height: 200px;
+  min-height: 200px;
   border: 5px outset rgb(220, 220, 220);
   border-radius: 10px;
   font-family: "DNFBitBitv2", sans-serif;
+  padding: 10px;
+  overflow-wrap: break-word;
+  word-break: break-all;
 `;
 
 const BottomContainer = styled.div`
@@ -97,6 +105,7 @@ const BottomContainer = styled.div`
   height: 14dvh;
   width: 100%;
 `;
+
 const BottomImg = styled.img`
   width: 100%;
 `;
@@ -105,6 +114,8 @@ const Result = () => {
   const navigate = useNavigate();
   const params = useParams();
   const [content, setContent] = useState("");
+  const comuincationBoxRef = useRef(null);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -115,7 +126,28 @@ const Result = () => {
       }
     };
     fetchData();
-  });
+  }, [params]);
+
+  useEffect(() => {
+    if (content) {
+      const sentences = content
+        .split(/(?<=[.!?])\s+/)
+        .filter((sentence) => sentence.trim().length > 0);
+
+      new TypeIt(comuincationBoxRef.current, {
+        strings: sentences,
+        speed: 100,
+        startDelay: 500,
+        breakLines: true,
+        nextStringDelay: 750,
+        cursor: false,
+        afterComplete: (instance) => {
+          instance.destroy();
+        },
+      }).go();
+    }
+  }, [content]);
+
   return (
     <ResultContainer>
       <GlobalFontDNF />
@@ -130,7 +162,7 @@ const Result = () => {
       </ResultMoodingImageContainer>
 
       <ComunicationContainer>
-        <ComuincationBox>{content}</ComuincationBox>
+        <ComuincationBox ref={comuincationBoxRef} />
       </ComunicationContainer>
 
       <ButtonBar>
