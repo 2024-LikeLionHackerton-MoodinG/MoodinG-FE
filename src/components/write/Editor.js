@@ -213,7 +213,7 @@ const Editor = ({ setButtonClicked, setBody, setFeedMeImg,setNoteButtonClick,ini
             <SaveButton onClick={()=>{
               setButtonClicked(false);
               setFeedMeImg(true);
-              alert(`노트에 감정이 쓰여졌어요!/\n무딩이의 입에 노트를 드래그해주세요!`);
+              alert(`노트에 감정이 쓰여졌어요!\n무딩이의 입에 노트를 드래그해주세요!`);
             }}>저장</SaveButton>
             <SmallTree src={smalltree2} alt="small_tree2"/>
         </SaveContainer>
