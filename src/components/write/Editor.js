@@ -6,6 +6,8 @@ import "../../lib/FontAwesome";
 import { useEffect, useRef } from "react";
 import { GlobalFontDNF, GlobalFontDalmoori } from "../../lib/fontSetting";
 import Mooding_trashcan from "../../lib/images/Mooding_trashcan.png";
+import smalltree1 from "../../lib/images/smalltree.png";
+import smalltree2 from "../../lib/images/smalltree2.png";
 
 const EditorContainer = styled.div`
   display: flex;
@@ -117,7 +119,41 @@ const QuillField = styled.div`
   height: 500px;
 `;
 
-const Editor = ({ setButtonClicked, setBody, setFeedMeImg }) => {
+const SaveContainer = styled.div`
+  display:flex;
+  flex-direction: row;
+  justify-content:center;
+  height: 9dvh;
+  align-items: flex-end;
+`;
+
+const SmallTree = styled.img`
+  width : 10dvw;
+  height: 9dvh;
+`;
+
+const SaveButton = styled.button`
+  width:9dvw;
+  height:8dvh;
+  border: 2px solid black;
+  border-radius: 20px;
+  font-family: "DNFBitBitv2",sans-serif;
+  background-color: white;
+  font-size: 1.5rem;
+  margin-bottom: 1dvh;
+  box-shadow: 4px 2px 4px #000000;
+  margin-left: 1px;
+  margin-right: 1px;
+  cursor: pointer;
+  &:active{
+    background-color: #fafaa0;
+    opacity: 75%;
+    transform: scale(0.95);
+    border: 4px solid black;
+  }
+`;
+
+const Editor = ({ setButtonClicked, setBody, setFeedMeImg,setNoteButtonClick,initialBody }) => {
   const quillElement = useRef(null);
   const quillInstance = useRef(null);
   useEffect(() => {
@@ -133,6 +169,10 @@ const Editor = ({ setButtonClicked, setBody, setFeedMeImg }) => {
 
     const quill = quillInstance.current;
     quill.root.style.fontFamily = "dalmoori, sans-serif";
+
+    if(initialBody){
+      quill.root.innerHTML = initialBody;
+    }
 
     quill.on("text-change", () => {
       setBody(quill.root.innerHTML);
@@ -151,11 +191,11 @@ const Editor = ({ setButtonClicked, setBody, setFeedMeImg }) => {
         <TitleContainer>
           <FontAwesomeIcon
             icon="fa-solid fa-chevron-left"
-            style={{ marginLeft: "10px" }}
+            style={{ marginLeft: "10px"}}
             onClick={() => {
               setButtonClicked(false);
-              setFeedMeImg(true);
-              alert(`노트에 감정이 쓰여졌어요!\n무딩이의 입에 노트를 드래그해주세요!`);
+              setNoteButtonClick(false);
+              setFeedMeImg(false);
             }}
           />
           <TitleBar>
@@ -165,6 +205,15 @@ const Editor = ({ setButtonClicked, setBody, setFeedMeImg }) => {
           <div></div> {/*공간채우기용*/}
         </TitleContainer>
         <QuillField ref={quillElement} />
+        <SaveContainer>
+            <SmallTree src={smalltree1} alt="small_tree1"/>
+            <SaveButton onClick={()=>{
+              setButtonClicked(false);
+              setFeedMeImg(true);
+              alert(`노트에 감정이 쓰여졌어요!/\n무딩이의 입에 노트를 드래그해주세요!`);
+            }}>저장</SaveButton>
+            <SmallTree src={smalltree2} alt="small_tree2"/>
+        </SaveContainer>
       </StyledEditor>
     </EditorContainer>
   );

@@ -110,8 +110,8 @@ const GuidePage = () => {
           </EachGuideExplanation>
           <EachGuideExplanation>
             <NumberStyle src={three} />
-            <span style={{ color: "red" }}>뒤로가기&nbsp;</span>버튼으로 일기장
-            닫아 주세요.
+            <span style={{ color: "red" }}>저장&nbsp;</span>버튼으로 일기장을
+            저장해주세요.
           </EachGuideExplanation>
           <EachGuideExplanation>
             <NumberStyle src={four} />
