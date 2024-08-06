@@ -41,10 +41,11 @@ const SubExplainDiv = styled.div`
 const TrashCanContainer = styled.div`
   display: flex;
   flex-direction: row;
+  margin-top: 3px;
 `;
 
 const TrashCanImg = styled.img`
-  width: 45px;
+  width: 46px;
   height: 65px;
   margin-right: 10px;
 `;
